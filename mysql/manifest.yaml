@@ -14,7 +14,7 @@ spec:
       matchLabels:  
         project: roboshop
         tier: database
-        component:mysql
+        component: mysql
         # This is pod definition, pod is subset of replicaset
     template:
       metadata:
