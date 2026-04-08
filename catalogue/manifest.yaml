@@ -23,17 +23,17 @@ metadata:
 spec:
   replicas: 1
   selector:
-     matchLabels:  
-        project: roboshop
-        tier: backend
-        component: catalogue
+    matchLabels:  
+      project: roboshop
+      tier: backend
+      component: catalogue
     template:
       metadata:
        namespace: roboshop
        labels:
-        project: roboshop
-        tier: backend
-        component: catalogue
+         project: roboshop
+         tier: backend
+         component: catalogue
       spec:
         containers:
         - name: catalogue
@@ -71,15 +71,15 @@ metadata:
   namespace: roboshop
   name: catalogue
   labels:
-        project: roboshop
-        tier: backend
-        component: catalogue
+    project: roboshop
+    tier: backend
+    component: catalogue
 spec:
   selector:
     # labels are used as delectors
-        project: roboshop
-        tier: backend
-        component: catalogue
+    project: roboshop
+    tier: backend
+    component: catalogue
   ports:
   - protocol: TCP
     port: 8080 #sevice port (internal cluster IP)
