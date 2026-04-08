@@ -19,9 +19,7 @@ metadata:
   labels:
     project: roboshop
     tier: backend
-    component: catalogue
-  annotations: 
-    kubernetes.io/change-cause: "starting with 1.0.0"  
+    component: catalogue 
 spec:
     replicas: 1
     selector:
@@ -39,7 +37,30 @@ spec:
       spec:
         containers:
         - name: catalogue
-          image: gaddamakhil/catalogue:1.0.0
+          image: gaddamakhil/catalogue:1.4.0
+          imagePullPolicy: Always #safe to pull everytime, there maybe images with same version rebuilt and pushed 
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "128Mi"  
+          readinessProbe:
+            #  httpGet:
+            #     path: /health
+            #     port: 8080 
+             tcpSocket:
+                port: 8080
+             failureThreshold: 2
+             periodSeconds: 10
+             initialDelaySeconds: 15
+          livenessProbe:
+             httpGet:
+                path: /health
+                port: 8080
+             failureThreshold: 2
+             periodSeconds: 10
           envFrom:
           - configMapRef:  
               name: catalogue  
