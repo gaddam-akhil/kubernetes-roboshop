@@ -21,9 +21,9 @@ metadata:
     tier: backend
     component: catalogue 
 spec:
-    replicas: 1
-    selector:
-      matchLabels:  
+  replicas: 1
+  selector:
+     matchLabels:  
         project: roboshop
         tier: backend
         component: catalogue
@@ -54,7 +54,7 @@ spec:
                 port: 8080
              failureThreshold: 2
              periodSeconds: 10
-             initialDelaySeconds: 15
+             initialDelaySeconds: 20
           livenessProbe:
              httpGet:
                 path: /health
