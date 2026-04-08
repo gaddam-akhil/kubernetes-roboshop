@@ -28,7 +28,7 @@ spec:
         containers:
         - name: redis
           image: redis:7.0
-          imagePullPolicy: Always #safe to pull everytime, there maybe images with same version rebuilt and pushed 
+          #imagePullPolicy: Always #safe to pull everytime, there maybe images with same version rebuilt and pushed 
 ---          
 apiVersion: v1
 kind: Service
