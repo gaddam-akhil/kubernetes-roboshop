@@ -106,7 +106,7 @@ spec:
         - name: nginx
            #by default it mounts and thinks as directory
           mountPath: "/etc/nginx/nginx.conf"
-          subpath: nginx.conf
+          subPath: nginx.conf
           readOnly: true
         resources:
           requests:
@@ -133,9 +133,9 @@ spec:
         envFrom:
         - configMapRef:
             name: frontend
-      volume:
+      volumes:
       - name: nginx
-        configMapRef:
+        configMap:
           name: frontend         
 ---
 apiVersion: v1
